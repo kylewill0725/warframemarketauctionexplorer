@@ -2,14 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import VueJsonp from 'vue-jsonp'
-import Moment from 'vue-moment'
-import VueMeta from 'vue-meta'
+import Clipboard from 'vue-clipboard2'
 
-Vue.use(Moment)
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 Vue.use(VueJsonp)
-Vue.use(VueMeta, {
-  refreshOnceOnNavigation: true
-})
+Vue.use(Clipboard)
 
 Vue.config.productionTip = false
 

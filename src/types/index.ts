@@ -1,8 +1,10 @@
 interface Riven {
     weapon_url_name: string
+    weapon: string
     name: string
     attributes: {
         url_name: string
+        name: string
         value: number
         positive: boolean
     }[]
