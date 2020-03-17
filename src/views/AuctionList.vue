@@ -94,7 +94,7 @@ export default class AuctionList extends Vue {
 
   mounted () {
     console.log('Loading rivens')
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV === 'production') {
       this.$jsonp('https://jsonp.afeld.me', {
         url: 'https://api.warframe.market/v1/profile/Qwyll/auctions'
       }).then((json: { payload: { auctions: AuctionType[] }}) => {
