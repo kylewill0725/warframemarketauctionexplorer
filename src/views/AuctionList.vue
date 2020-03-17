@@ -70,7 +70,7 @@ export default class AuctionList extends Vue {
   filter = ''
   sortBy = 'weapon'
   fields = [
-    { key: 'weapon', sortable: true },
+    { key: 'weapon', sortable: true, sortByFormatted: true, formatter: function (value: never, key: string, item: AuctionType) { return item.item.weapon } },
     { key: 'name' },
     { key: 'starting_price', sortable: true, label: 'Price' },
     'rolls',
@@ -86,10 +86,6 @@ export default class AuctionList extends Vue {
 
   negativeStats (stats: { positive: boolean }[]) {
     return stats.filter(s => !s.positive)
-  }
-
-  formatWeaponName (value: never, key: string, item: AuctionType) {
-    return translate(item.item.weapon_url_name) + ' ' + item.item.name
   }
 
   mounted () {
