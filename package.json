@@ -59,6 +59,7 @@
   ],
   "vue": {
     "runtimeCompiler": true,
-    "outputDir": "docs"
+    "outputDir": "docs",
+    "publicPath": ""
   }
 }
