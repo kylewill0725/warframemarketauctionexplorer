@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/:user',
+    path: '/',
     name: 'AuctionList',
     component: AuctionList
   }
