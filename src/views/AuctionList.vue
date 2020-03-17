@@ -94,7 +94,7 @@ export default class AuctionList extends Vue {
       this.$jsonp('https://jsonp.afeld.me', {
         url: 'https://api.warframe.market/v1/profile/Qwyll/auctions'
       }).then((json: { payload: { auctions: AuctionType[] }}) => {
-        this.data = json.payload.auctions.map((a: AuctionType) => {
+        this.data = json.payload.auctions.filter((a: AuctionType) => a.is_direct_sell).map((a: AuctionType) => {
           a.updated = new Date(a.updated)
           a.item.weapon = translate(a.item.weapon_url_name)
           a.item.attributes.forEach(s => {
