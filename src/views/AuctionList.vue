@@ -18,17 +18,20 @@
       <template v-slot:cell(rolls)="{ item }">
         {{ item.item.re_rolls }}
       </template>
+      <template v-slot:cell(masteryRank)="{ item }">
+        {{ item.item.mastery_level }}
+      </template>
       <template v-slot:cell(polarity)="{ item }">
         {{ item.item.polarity }}
       </template>
       <template v-slot:cell(stats)="{ item }">
         <b-col>
-          <div :key="stat.name" v-for="stat in positiveStats(item.item.attributes)">
+          <div class="stats" :key="stat.name" v-for="stat in positiveStats(item.item.attributes)">
             {{ stat.name }}: {{stat.value}}
           </div>
         </b-col>
         <b-col>
-          <div :key="stat.name" v-for="stat in negativeStats(item.item.attributes)">
+          <div class="stats" :key="stat.name" v-for="stat in negativeStats(item.item.attributes)">
             {{ stat.name }}: {{stat.value}}
           </div>
         </b-col>
@@ -74,6 +77,7 @@ export default class AuctionList extends Vue {
     { key: 'name' },
     { key: 'starting_price', sortable: true, label: 'Price' },
     'rolls',
+    'masteryRank',
     'polarity',
     'stats',
     'auctionLink',
@@ -119,3 +123,8 @@ export default class AuctionList extends Vue {
   }
 }
 </script>
+<style scoped>
+.stats {
+  font-size: 75%;
+}
+</style>
